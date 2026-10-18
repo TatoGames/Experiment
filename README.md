@@ -47,6 +47,14 @@
 
 - `index.html`: 화면 스타일과 변환 로직을 포함한 단일 웹페이지
 - `README.md`: 실행 및 사용 방법
+- 검토 폴더: `/Users/minu/hive-test` (두 파일 모두 이 폴더의 루트에 있습니다.)
 - GitHub: [TatoGames/Experiment · inch 브랜치](https://github.com/TatoGames/Experiment/tree/inch)
+
+### 검토할 구현 커밋
+
+- 단위 변환기 구현: [`351c449ac0c68e6becc0656702b194d2c524867c`](https://github.com/TatoGames/Experiment/commit/351c449ac0c68e6becc0656702b194d2c524867c)
+- 다크 모드를 포함한 현재 웹페이지: [`044990a330cbf1946e6591c22bccfc7be6aa53f9`](https://github.com/TatoGames/Experiment/commit/044990a330cbf1946e6591c22bccfc7be6aa53f9)
+
+검토 시 위 폴더의 `index.html`을 직접 열고, **확인 예시** 표의 값을 입력해 결과를 비교하세요. 저장소를 복제했다면 `git switch inch`로 해당 브랜치를 선택합니다. 이 README의 검토 안내를 포함한 최종 저장 커밋은 작업 완료 보고에도 명시합니다.
 
 GitHub 저장과 웹사이트 공개 배포는 별개입니다. 이 작업은 GitHub Pages 등의 공개 배포 설정을 변경하지 않습니다.
