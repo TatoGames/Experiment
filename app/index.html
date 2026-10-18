@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Typing Speed Racer</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="app-tools">
+      <button type="button" class="btn btn-secondary btn-small" id="btn-sound" aria-pressed="false">효과음 꺼짐</button>
+    </div>
+    <p class="sr-only" id="status" role="status" aria-live="polite" aria-atomic="true"></p>
+    <p class="mobile-notice">이 게임은 물리 키보드가 있는 데스크톱에서 플레이할 수 있어요.</p>
+
+    <!-- S-1 시작 화면 -->
+    <section class="screen screen-start" id="screen-start" aria-labelledby="app-title">
+      <h1 class="app-title" id="app-title"><span aria-hidden="true">🏎</span> Typing Speed Racer</h1>
+      <p class="subtitle">영어 타자 속도 측정 미니게임</p>
+      <div class="difficulty-row" role="group" aria-label="난이도 선택">
+        <button type="button" class="btn difficulty-btn" data-diff="easy" aria-pressed="false">
+          <span class="diff-name">쉬움</span>
+          <span class="diff-best" data-best="easy">기록 없음</span>
+        </button>
+        <button type="button" class="btn difficulty-btn selected" data-diff="normal" aria-pressed="true">
+          <span class="diff-name">보통</span>
+          <span class="diff-best" data-best="normal">기록 없음</span>
+        </button>
+        <button type="button" class="btn difficulty-btn" data-diff="hard" aria-pressed="false">
+          <span class="diff-name">어려움</span>
+          <span class="diff-best" data-best="hard">기록 없음</span>
+        </button>
+      </div>
+      <p class="hint desktop-only">[1] 쉬움 · [2] 보통 · [3] 어려움 · Enter/Space 로 시작</p>
+      <p class="hint"><button type="button" class="btn btn-secondary btn-small" id="btn-reset">기록 초기화</button></p>
+    </section>
+
+    <!-- S-2 게임 화면 -->
+    <section class="screen screen-game" id="screen-game" aria-label="타이핑 레이스" hidden>
+      <div class="hud">
+        <span class="hud-item" id="hud-diff">NORMAL</span>
+        <span class="hud-item">⏱ <span id="hud-time">0.0</span>s</span>
+        <span class="hud-item">🚀 <span id="hud-wpm">0.0</span> WPM</span>
+      </div>
+      <div class="track-container" aria-hidden="true">
+        <div class="track-road">
+          <div class="car-icon" id="car" style="left: 0%">
+            <svg viewBox="0 0 64 32" width="48" height="24" focusable="false" aria-hidden="true">
+              <path fill="#a78bfa" d="M4 10h18l7-6h13l8 9 10 3v9H4z"/>
+              <path fill="#16161a" d="m31 7-6 6h20l-6-6z"/>
+              <path fill="#facc15" d="M48 16h12v4H48zM4 16h5v4H4z"/>
+              <circle cx="15" cy="25" r="7" fill="#0d0d0f"/><circle cx="49" cy="25" r="7" fill="#0d0d0f"/>
+              <circle cx="15" cy="25" r="3" fill="#e8e8f0"/><circle cx="49" cy="25" r="3" fill="#e8e8f0"/>
+            </svg>
+          </div>
+          <div class="finish-area">🏁</div>
+        </div>
+      </div>
+      <div class="track-progress" id="progress-text" role="progressbar" aria-label="문장 입력 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">0%</div>
+      <div class="sentence-box">
+        <div class="sentence" id="sentence" lang="en" aria-hidden="true"></div>
+        <div class="countdown-overlay" id="countdown" hidden>
+          <span class="countdown-number" id="countdown-number">3</span>
+        </div>
+      </div>
+      <p class="sr-only" id="sentence-readable" lang="en"></p>
+      <label class="input-label" for="typing-input">문장 입력</label>
+      <textarea class="typing-input" id="typing-input" rows="2" lang="en" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="sentence-readable typing-help" placeholder="카운트다운이 끝나면 여기에 입력하세요."></textarea>
+      <p class="hint" id="typing-help">영문 입력 모드(한/영 키)를 확인하세요. 첫 글자를 입력하면 타이머가 시작됩니다. 오타는 밑줄로 표시됩니다.</p>
+      <p class="hint">Esc: 게임 중단 · Backspace: 지우기 · Tab: 버튼으로 이동</p>
+      <button type="button" class="btn btn-secondary btn-small game-exit" id="btn-exit">레이스 중단 <small>Esc</small></button>
+    </section>
+
+    <!-- S-3 결과 화면 -->
+    <section class="screen screen-result" id="screen-result" aria-labelledby="result-title" hidden>
+      <h2 class="result-title" id="result-title" tabindex="-1" aria-describedby="result-score result-detail best-panel">🏆 완료! <span class="new-record-badge" id="record-badge" hidden>★ 신기록!</span></h2>
+      <div id="result-score"><div class="result-wpm" id="result-wpm">0.0</div>
+      <div class="result-unit">WPM</div></div>
+      <p class="result-detail" id="result-detail">정확도 <strong id="result-acc">0</strong>% · 소요 <strong id="result-time">0</strong>초</p>
+      <div class="best-panel" id="best-panel"></div>
+      <div class="result-actions">
+        <button type="button" class="btn btn-primary" id="btn-retry">다시 도전 <small>Enter</small></button>
+        <button type="button" class="btn btn-secondary" id="btn-change">난이도 변경 <small>Esc</small></button>
+      </div>
+    </section>
+
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
