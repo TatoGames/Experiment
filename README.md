@@ -2,7 +2,7 @@
 
 영어 타자 속도를 재는 미니게임입니다. 문장을 정확히 치면 자동차가 결승선으로 달리고, 끝나면 WPM·정확도·시간이 나옵니다. 난이도는 쉬움·보통·어려움이고 최고 기록은 브라우저 `localStorage`에 저장됩니다.
 
-- **Pages URL (예정):** https://minu-96.github.io/Experiment/
+- **Pages URL (예정):** https://tatogames.github.io/Experiment/
 - 의존성·빌드 단계가 없는 정적 웹앱입니다 (`app/index.html`, `style.css`, `main.js`).
 - 물리 키보드가 있는 데스크톱 브라우저용입니다.
 
