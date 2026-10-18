@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c111a">
+  <title>작은 던전 — 미니 로그라이크</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="game-shell" aria-labelledby="game-title">
+    <header class="masthead">
+      <div class="brand-mark" aria-hidden="true">✦</div>
+      <div>
+        <p class="eyebrow">A TINY TURN-BASED ADVENTURE</p>
+        <h1 id="game-title">작은 던전</h1>
+      </div>
+      <div class="run-label"><span class="run-dot" aria-hidden="true"></span><span id="status-phase">탐험 중</span></div>
+    </header>
+
+    <section class="game-panel" aria-label="던전 게임">
+      <div class="status-bar" aria-label="현재 상태">
+        <div class="status-item health-item">
+          <span class="status-icon heart" aria-hidden="true">♥</span>
+          <span class="status-copy"><span class="status-label">체력</span><strong id="status-hp">20/20</strong></span>
+        </div>
+        <div class="status-item floor-item">
+          <span class="status-icon stairs-icon" aria-hidden="true">⌁</span>
+          <span class="status-copy"><span class="status-label">던전</span><strong id="status-floor">1/3층</strong></span>
+        </div>
+        <div class="status-item gold-item">
+          <span class="status-icon coin" aria-hidden="true">$</span>
+          <span class="status-copy"><span class="status-label">금화</span><strong id="status-gold">0</strong></span>
+        </div>
+        <div class="status-item potion-item">
+          <span class="status-icon potion-icon" aria-hidden="true">!</span>
+          <span class="status-copy"><span class="status-label">포션</span><strong id="status-potions">0</strong></span>
+        </div>
+      </div>
+
+      <div class="dungeon-frame">
+        <canvas id="gameCanvas" width="640" height="480" aria-label="던전 게임 화면">Canvas를 지원하는 브라우저가 필요합니다.</canvas>
+        <div id="end-screen" class="end-screen" hidden aria-hidden="true" role="dialog" aria-labelledby="end-title" aria-describedby="end-score restart-hint">
+          <div class="end-card">
+            <span class="end-spark" aria-hidden="true">✦</span>
+            <p class="eyebrow">ADVENTURE COMPLETE</p>
+            <h2 id="end-title"></h2>
+            <p id="end-score" class="end-score">점수: 0</p>
+            <p id="restart-hint" class="restart-hint">[R] 다시 시작</p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="game-footer">
+        <section class="message-area" aria-labelledby="message-title" aria-live="polite" aria-relevant="additions text">
+          <div class="section-heading"><span class="heading-mark" aria-hidden="true">›</span><h2 id="message-title">모험 기록</h2><span class="latest-tag">최근 기록</span></div>
+          <div id="messages" class="messages"></div>
+        </section>
+        <aside class="controls" aria-label="조작 안내">
+          <div class="section-heading"><span class="heading-mark" aria-hidden="true">⌘</span><h2>조작</h2></div>
+          <div class="control-list">
+            <span><kbd>WASD</kbd><kbd>↑↓←→</kbd> 이동·공격</span>
+            <span><kbd>G</kbd> 줍기 <kbd>1</kbd> 포션</span>
+          </div>
+        </aside>
+      </footer>
+    </section>
+    <p class="page-note">용기를 내어 더 깊은 곳으로. <span>— 던전 탐험가 길드</span></p>
+  </main>
+</body>
+</html>
