@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>온실 타이쿤</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>🌿 온실 타이쿤</h1>
+    <div class="stats">
+      <div class="stat"><span class="label">코인</span><span id="coins" class="value">0</span></div>
+      <div class="stat"><span class="label">초당 수입</span><span id="income" class="value">0</span></div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel water-panel">
+      <h2>물주기</h2>
+      <button id="water-btn" class="water-btn" type="button">💧 물주기</button>
+      <p class="hint">눌러서 코인을 모으세요!</p>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2>식물 구매</h2>
+      <ul id="plants" class="list"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>업그레이드</h2>
+      <ul id="upgrades" class="list"></ul>
+    </section>
+  </main>
+
+  <script src="../src/data.js"></script>
+  <script src="../src/engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

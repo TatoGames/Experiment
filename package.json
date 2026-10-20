@@ -1,0 +1,13 @@
+{
+  "name": "greenhouse-tycoon",
+  "version": "1.0.0",
+  "description": "온실 타이쿤 — 방치형 경영 시뮬레이션 Electron 앱",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}

@@ -1,0 +1,92 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  color: #1b3a24;
+  background: linear-gradient(180deg, #d9f2d0 0%, #a8dba0 100%);
+  min-height: 100vh;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #2f7d3f;
+  color: #f2fff0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.top h1 { margin: 0; font-size: 22px; }
+
+.stats { display: flex; gap: 24px; }
+.stat { display: flex; flex-direction: column; align-items: flex-end; }
+.stat .label { font-size: 12px; opacity: 0.85; }
+.stat .value { font-size: 22px; font-weight: bold; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 14px;
+  padding: 14px 20px;
+  align-items: start;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #6fb97c;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.panel h2 { margin: 0 0 10px; font-size: 16px; color: #236132; }
+
+.water-panel { text-align: center; }
+
+.water-btn {
+  width: 100%;
+  padding: 28px 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(180deg, #4fc3f7, #0288d1);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.08s;
+}
+.water-btn:active { transform: scale(0.95); }
+
+.hint { font-size: 12px; color: #4b6d52; }
+.status { font-size: 12px; color: #7a7a7a; min-height: 1em; }
+
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #f4fff2;
+  border: 1px solid #b6dfb8;
+  border-radius: 8px;
+}
+
+.item .info { display: flex; flex-direction: column; font-size: 13px; }
+.item .name { font-weight: bold; }
+.item .meta { font-size: 12px; color: #5a7d60; }
+
+.buy-btn {
+  min-width: 82px;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #fff;
+  background: #2f9e44;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.buy-btn:hover:not(:disabled) { background: #237a34; }
+.buy-btn:disabled { background: #a5b8a8; cursor: not-allowed; }
