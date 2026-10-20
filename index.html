@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f0e6">
+  <title>골목 한 잔 · 동네 카페 타이쿤</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div><p class="eyebrow">작은 한 잔에서 시작하는 이야기</p><h1>골목 한 잔 <span>동네 카페 타이쿤</span></h1></div>
+      <div class="save-tools"><span id="save-status" role="status">자동 저장 준비 중</span><button id="save-button" class="quiet">저장</button><button id="reset-button" class="quiet">처음부터</button></div>
+    </header>
+    <main>
+      <section class="stats" aria-label="카페 수입 현황">
+        <div class="balance"><span>보유 코인</span><strong id="coins">₩0</strong></div>
+        <div><span>커피 한 잔당</span><strong id="per-click">₩1</strong></div>
+        <div><span>초당 자동 수입</span><strong id="per-second">₩0</strong></div>
+        <div><span>전체 수입 배율</span><strong id="multiplier">×1.00</strong></div>
+      </section>
+      <div class="columns">
+        <section class="cafe-panel" aria-labelledby="cafe-title">
+          <div class="panel-heading"><span class="eyebrow">오늘도 문을 열었어요</span><span id="stage-badge" class="badge">1단계 · 노점</span></div>
+          <h2 id="cafe-title">골목의 작은 노점</h2><p id="stage-description" class="muted">정성껏 내린 한 잔으로 첫 손님을 맞이하세요.</p>
+          <div class="scene" aria-hidden="true"><div class="sun"></div><div class="window"><i></i><i></i></div><div class="shop"><div class="shop-sign">골목 한 잔</div><div class="awning"></div><div class="shop-front"><div class="menu-board">오늘의 커피<br><b>COFFEE</b><br>따뜻한 한 잔</div><div class="cup">☕</div><div class="plant">♣</div></div><div class="counter"></div></div><div class="ground"></div></div>
+          <button id="coffee-button" class="coffee-button"><span>☕ 커피 팔기</span><small id="click-hint">한 잔 팔고 ₩1 받기</small></button>
+          <p class="tip">버튼을 누르거나, 직원과 장비로 꾸준히 수입을 올려보세요.</p>
+          <section class="growth" aria-labelledby="growth-title"><div class="growth-heading"><h3 id="growth-title">다음 목표 · 동네 카페</h3><span id="growth-percent">0%</span></div><progress id="growth-progress" max="100" value="0" aria-label="다음 단계 달성률"></progress><div id="growth-conditions"></div><p class="total">지금까지 번 코인 <strong id="total-earned">₩0</strong></p></section>
+        </section>
+        <section class="upgrade-panel" aria-labelledby="upgrades-title"><div class="section-title"><div><p class="eyebrow">조금씩 더 큰 카페로</p><h2 id="upgrades-title">카페 업그레이드</h2></div><span class="muted">1회에 1개 구매</span></div><div id="upgrades" class="upgrades"></div><p class="shop-note">구매할 때마다 해당 업그레이드 가격이 ×1.15 올라갑니다.</p></section>
+      </div>
+    </main>
+    <footer>쉬는 동안에도 카페는 일해요. 오프라인 수입 50% · 최대 8시간 <span>10초마다 자동 저장</span></footer>
+  </div>
+  <dialog id="notice-dialog" aria-labelledby="notice-title"><div class="notice-icon" aria-hidden="true">☕</div><h2 id="notice-title">카페 소식</h2><p id="notice-message"></p><button id="notice-close" class="primary">좋아요</button></dialog>
+</body>
+</html>
